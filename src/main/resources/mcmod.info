@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "moddingtest",
+    "name": "Modding Test",
+    "description": "This mod is made as a joke based on Akagamine craft.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["FeK Alloy"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

@@ -1,0 +1,6 @@
+
+tile.air_trap.name=打ち上げトラップ
+tile.fire_trap.name=炎トラップ
+tile.explosion_trap.name=爆発トラップ
+
+item.explosive.name=自爆

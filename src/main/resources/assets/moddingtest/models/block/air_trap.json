@@ -1,0 +1,6 @@
+{
+    "parent": "moddingtest:block/trap_base",
+    "textures": {
+        "texture": "moddingtest:blocks/air_trap"
+    }
+}

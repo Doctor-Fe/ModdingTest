@@ -1,0 +1,23 @@
+{
+    "type":"forge:ore_shaped",
+    "pattern": [
+        "GPG",
+        "SSS"
+    ],
+    "key": {
+        "G": {
+            "type": "forge:ore_dict",
+            "ore": "gunpowder"
+        },
+        "P": {
+            "item": "minecraft:piston"
+        },
+        "S": {
+            "item": "minecraft:stone"
+        }
+    },
+    "result": {
+        "item": "moddingtest:air_trap",
+        "count": 8
+    }
+}

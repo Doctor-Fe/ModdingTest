@@ -1,0 +1,22 @@
+{
+    "type":"forge:ore_shaped",
+    "pattern": [
+        "BPB",
+        "SBS"
+    ],
+    "key": {
+        "S": {
+            "item": "minecraft:stone"
+        },
+        "P": {
+            "item": "minecraft:stone_pressure_plate"
+        },
+        "B": {
+            "item": "minecraft:blaze_powder"
+        }
+    },
+    "result": {
+        "item": "moddingtest:fire_trap",
+        "count": 8
+    }
+}
