@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": {"model":"air_trap"}
+        "normal": {"model":"moddingtest:air_trap"}
     }
 }

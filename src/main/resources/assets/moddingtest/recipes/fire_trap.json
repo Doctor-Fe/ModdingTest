@@ -6,7 +6,8 @@
     ],
     "key": {
         "S": {
-            "item": "minecraft:stone"
+            "item": "minecraft:stone",
+            "data": 0
         },
         "P": {
             "item": "minecraft:stone_pressure_plate"
