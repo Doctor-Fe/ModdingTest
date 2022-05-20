@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public abstract class TrapBase extends Block {
 
-	public final AxisAlignedBB AA_BB = new AxisAlignedBB(0, 0, 0, 1, 0.25D, 1);
+	public static final AxisAlignedBB AA_BB = new AxisAlignedBB(0, 0, 0, 1, 0.25D, 1);
 
 	public TrapBase(Material materialIn) {
 		super(materialIn);

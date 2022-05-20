@@ -1,0 +1,23 @@
+{
+	"parent": "minecraft:block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"tex": "moddingtest:blocks/explosion_trap",
+		"particle": "moddingtest:blocks/explosion_trap"
+	},
+	"elements": [
+		{
+			"name": "base",
+			"from": [0, 0, 0],
+			"to": [16, 4, 16],
+			"faces": {
+				"north": {"uv": [0, 8, 8, 12], "texture": "#tex"},
+				"east": {"uv": [0, 12, 8, 16], "texture": "#tex"},
+				"south": {"uv": [8, 12, 16, 16], "texture": "#tex"},
+				"west": {"uv": [8, 8, 16, 12], "texture": "#tex"},
+				"up": {"uv": [0, 8, 8, 0], "texture": "#tex"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#tex"}
+			}
+		}
+	]
+}
