@@ -6,8 +6,8 @@ import net.minecraft.world.World;
 
 public class AirTrap extends TrapBase{
 
-    public AirTrap(Material materialIn, String registryName, String unlocalizedName) {
-        super(materialIn, registryName, unlocalizedName);
+    public AirTrap(Material materialIn) {
+        super(materialIn, "air_trap", "air_trap");
     }
     
     @Override

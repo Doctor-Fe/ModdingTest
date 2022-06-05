@@ -11,6 +11,7 @@ public class Items {
 	public static final Item AIRTRAP_ITEM = getItemFromBlock(Blocks.AIRTRAP_BLOCK);
 	public static final Item EXPLOSIONTRAP_ITEM = getItemFromBlock(Blocks.EXPLOSIONTRAP_BLOCK);
 	public static final Item EXPLOSIVE_ITEM = new Explosive(ModdingTest.MODID, "explosive", "explosive");
+	public static final Item LIGHTNINGTRAP_ITEM = getItemFromBlock(Blocks.LIGHTNING_TRAP);
 
 	private static Item getItemFromBlock(Block block)
 	{

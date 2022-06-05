@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 
 public class ExplosionTrap extends TrapBase{
 
-    public ExplosionTrap(Material materialIn, String registryName, String unlocalizedName) {
-        super(materialIn, registryName, unlocalizedName);
+    public ExplosionTrap(Material materialIn) {
+        super(materialIn, "explosion_trap", "explosion_trap");
     }
 
     @Override

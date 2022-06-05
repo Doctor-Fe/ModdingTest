@@ -2,6 +2,7 @@ package alloyfek.moddingtest.blocks;
 
 import java.util.Random;
 
+import alloyfek.moddingtest.utils.BlockGen;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -18,9 +19,9 @@ public class FireTrap extends TrapBase{
 
 	public int fireRange;
 
-    public FireTrap(Material materialIn, String registryName, String unlocalizedName) {
-        super(materialIn, registryName, unlocalizedName);
-		fireRange = 3;
+    public FireTrap(Material materialIn) {
+        super(materialIn, "fire_trap", "fire_trap");
+		fireRange = 5;
 		setLightLevel(10);
     }
 
@@ -33,27 +34,9 @@ public class FireTrap extends TrapBase{
 			BlockPos center = entityin.getPosition();
 			worldIn.setBlockToAir(center);
 			worldIn.playSound(null, center, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.AMBIENT, 1F, 1F);
-			Random rnd = new Random(center.hashCode() ^ entityin.hashCode());
-			rnd.setSeed(rnd.nextLong());
-			for (int x = -fireRange; x <= fireRange; x++)
-			{
-				for (int y = -fireRange; y <= fireRange; y++)
-				{
-					for (int z = -fireRange; z <= fireRange; z++)
-					{
-						BlockPos pos = new BlockPos(x, y, z);
-						if (pos.getDistance(0, 0, 0) <= fireRange)
-						{
-							pos = pos.add(center);
-							if (worldIn.isAirBlock(pos) && Blocks.FIRE.canPlaceBlockAt(worldIn, pos) && rnd.nextDouble(100) < 40D)
-							{
-								worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState());
-							}
-						}
-					}
-				}
-			}
-			entityin.setFire(10);
+			BlockGen.spreadBlock(worldIn, new Random(center.hashCode() ^ entityin.hashCode()),Blocks.FIRE, center, fireRange / 3, 85);
+			BlockGen.spreadBlock(worldIn, new Random(center.hashCode() ^ entityin.hashCode()),Blocks.FIRE, center, fireRange, 40);
+			entityin.setFire(5);
 		}
 	}
 
