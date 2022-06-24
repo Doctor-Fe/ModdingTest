@@ -8,7 +8,7 @@ public class ItemRegister {
 	{
 		ForgeRegistries.ITEMS.registerAll(
 			Items.FIRETRAP_ITEM, Items.AIRTRAP_ITEM, Items.EXPLOSIONTRAP_ITEM, Items.EXPLOSIVE_ITEM,
-			Items.LIGHTNINGTRAP_ITEM
+			Items.LIGHTNINGTRAP_ITEM, Items.REMOTE_IGNITER_ITEM
 		);
 	}
 }
