@@ -8,4 +8,9 @@ public abstract class ItemBase extends Item{
         setRegistryName(modID, registryName);
         setUnlocalizedName(unlocalizedName);
     }
+
+    public ItemBase(String modId, String name)
+    {
+        this(modId, name, name);
+    }
 }

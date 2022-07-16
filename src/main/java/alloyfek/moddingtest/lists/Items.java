@@ -11,7 +11,7 @@ public class Items {
 	public static final Item FIRETRAP_ITEM = getItemFromBlock(Blocks.FIRETRAP_BLOCK);
 	public static final Item AIRTRAP_ITEM = getItemFromBlock(Blocks.AIRTRAP_BLOCK);
 	public static final Item EXPLOSIONTRAP_ITEM = getItemFromBlock(Blocks.EXPLOSIONTRAP_BLOCK);
-	public static final Item EXPLOSIVE_ITEM = new Explosive(ModdingTest.MODID, "explosive", "explosive");
+	public static final Item EXPLOSIVE_ITEM = new Explosive(ModdingTest.MODID,  "explosive");
 	public static final Item LIGHTNINGTRAP_ITEM = getItemFromBlock(Blocks.LIGHTNING_TRAP);
 	public static final Item REMOTE_IGNITER_ITEM = new ItemRemoteIgniter(ModdingTest.MODID, "remote_igniter");
 

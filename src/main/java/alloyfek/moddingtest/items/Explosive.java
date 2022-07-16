@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 public class Explosive extends ItemBase {
 
-    public Explosive(String modID, String registryName, String unlocalizedName) {
-        super(modID, registryName, unlocalizedName);
+    public Explosive(String modID, String name) {
+        super(modID, name);
     }
 
     @Override
