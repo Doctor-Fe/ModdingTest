@@ -18,16 +18,19 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemRemoteIgniter extends ItemBase {
-    public ItemRemoteIgniter(String modId, String registryName)
+
+    public static BlockTNT tnt = (BlockTNT)Blocks.TNT;
+
+    public ItemRemoteIgniter(String modId, String name)
     {
-        super(modId, registryName, registryName);
+        super(modId, name);
         setMaxStackSize(1);
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        ModdingTest.logger.trace("remote_igniter onItemUse was called.");
-        ModdingTest.logger.trace("%s", pos.toString());
+        ModdingTest.logger.info("ItemRemoteIgniter.onItemUse was called.");
+        ModdingTest.logger.trace(String.format("%s", pos.toString()));
         IBlockState b = worldIn.getBlockState(pos);
         if (!worldIn.isRemote && b.getBlock() instanceof BlockTNT)
         {
@@ -61,7 +64,7 @@ public class ItemRemoteIgniter extends ItemBase {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-        ModdingTest.logger.trace("Pressed right click with remote_igniter.");
+        ModdingTest.logger.info("ItemRemoteIgniter.onItemRightClick: Called.");
         if (!worldIn.isRemote)
         {
             NBTTagCompound i = playerIn.getHeldItem(handIn).getTagCompound();
@@ -70,14 +73,17 @@ public class ItemRemoteIgniter extends ItemBase {
                 ModdingTest.logger.trace("NBT tag was avaliable.");
                 NBTTagCompound c = i.getCompoundTag("pos");
                 BlockPos pos = new BlockPos(c.getInteger("x"),c.getInteger("y"),c.getInteger("z"));
+                ModdingTest.logger.trace(String.format("Position from NBT: %s", pos.toString()));
                 if (worldIn.getBlockState(pos).getBlock() instanceof BlockTNT)
                 {
-                    BlockTNT tnt = (BlockTNT)Blocks.TNT;
+                    ModdingTest.logger.trace(String.format("Block at %s was TNT Block.", pos.toString()));
                     tnt.explode(worldIn, pos, worldIn.getBlockState(pos), playerIn);
                     return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
                 } else
                 {
+                    ModdingTest.logger.trace(String.format("Block at %s was not TNT Block.", pos.toString()));
                     i.removeTag("pos");
+                    ModdingTest.logger.trace(String.format("NBT tag was removed."));
                 }
             }
         }
