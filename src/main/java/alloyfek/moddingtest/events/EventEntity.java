@@ -1,8 +1,9 @@
 package alloyfek.moddingtest.events;
 
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraftforge.event.entity.ProjectileImpactEvent.Arrow;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
@@ -11,18 +12,15 @@ public class EventEntity {
     @SubscribeEvent
     public void onProjectileImpact(Arrow arrow)
     {
-        // TODO 火をつける座標の設定
-        if (arrow.getArrow().isBurning())
+        EntityArrow arrow2 = arrow.getArrow();
+        RayTraceResult result = arrow.getRayTraceResult();
+        if (arrow.getArrow().isBurning() && !arrow2.world.isRemote && result.entityHit == null)
         {
-            World world = arrow.getArrow().getEntityWorld();
-            BlockPos pos = arrow.getArrow().getPosition();
-            BlockPos offset = pos.offset(arrow.getRayTraceResult().sideHit);
-            if (Blocks.FIRE.canPlaceBlockAt(world, pos))
+            BlockPos blockpos = result.getBlockPos().offset(result.sideHit);
+
+            if (arrow2.world.isAirBlock(blockpos))
             {
-                world.setBlockState(pos, Blocks.FIRE.getDefaultState());
-            } else if (Blocks.FIRE.canPlaceBlockAt(world, offset))
-            {
-                world.setBlockState(offset, Blocks.FIRE.getDefaultState());
+                arrow2.world.setBlockState(blockpos, Blocks.FIRE.getDefaultState());
             }
         }
         arrow.setResult(Result.DEFAULT);
